@@ -17,8 +17,6 @@ Mappings:
 ############# Sit Environment
       test:
         VPC: "vpc-d53256b0"
-        SecurityGroups: [ "sg-bd46b4d9", "sg-2cfe5348", "sg-7545b711" , "sg-99288efd", "sg-ac9fbbcb" ]
-        Subnets: [ "subnet-9c6847eb" , "subnet-d1f50cb5" ]
 Resources:
   RestApi:
     Type: "AWS::ApiGateway::RestApi"
