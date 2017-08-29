@@ -98,7 +98,7 @@ Resources:
       Code:
         ZipFile: !Sub |
           exports.handler = function(event, context, callback) {
-            console.log(event.body);
+            console.log(event);
             callback(null, {"status":"Success"});
           }
       Runtime: "nodejs4.3"
