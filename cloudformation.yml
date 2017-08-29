@@ -124,7 +124,7 @@ Resources:
     Type: "AWS::ApiGateway::Deployment"
     Properties:
       RestApiId: !Ref RestApi
-      StageName: "DummyStage"
+      StageName: !Ref Environment
   RestApiStage:
     DependsOn:
       - ApigatewayAccount
