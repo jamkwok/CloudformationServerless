@@ -14,9 +14,9 @@ Parameters:
     - test
 Mappings:
    EnvClusterMap:
-############# Sit Environment
+############# Non Prod Environment
       test:
-        VPC: "vpc-d53256b0"
+        Endpoint: "lambda-test.hometrack.com.au"
 Resources:
   RestApi:
     Type: "AWS::ApiGateway::RestApi"
@@ -94,11 +94,13 @@ Resources:
       Role:
         !GetAtt LambdaExecutionRole.Arn
       Code:
+############# Lambda Code #############
         ZipFile: !Sub |
           exports.handler = function(event, context, callback) {
             console.log(event);
             callback(null, {"status":"Success"});
           }
+#######################################
       Runtime: "nodejs4.3"
       Timeout: "25"
       TracingConfig:
@@ -154,6 +156,6 @@ Resources:
       MethodResponses:
         - StatusCode: '200'
 Outputs:
-  LoadBalancerDNSName:
-    Description: Load Balancer DNS
+  ApiDns:
+    Description: 'Hello World'
     Value: 'Hello World'
